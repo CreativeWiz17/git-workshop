@@ -1,12 +1,12 @@
-# Nebula Labs Git & GitHub Guide
+# Nebula Labs Git and GitHub Workshop
 
-Welcome to the Nebula Labs Fall 2026 Git and Github Guide! If you run into any problems, don't be afraid to ask for help! See our Discord at []
+Welcome to the Nebula Labs Fall 2026 Git and Github workshop! If you run into any problems, don't be afraid to ask for help! Since this workshop is self guided, you can complete this at your own pace, or even share with others
 
-You can find the slides for the Workshop at []
+Check out Nebula Lab's discord [here](https://discord.gg/t82yH6c5Mv). We're here to help!
 
-Be sure to check out the Git cheat sheet at []
+You can find the optional slides associated with this workshop [here](https://docs.google.com/presentation/d/1bAFLI1-lTbMHA8uViJ5STYrv4VZj-Af6/edit?usp=sharing&ouid=110056758517350255566&rtpof=true&sd=true)
 
----
+Be sure to check out the Git cheat sheet [here]
 
 ## Setup
 
@@ -28,7 +28,7 @@ The symbol `~` represents your home directory. For example, `~/Projects/` repres
 If you're not using **Windows**, you can skip to [Install Required Tools](#install-required-tools). **Windows** has several different terminal environments, called **shells**. The most common shells are `PowerShell`, `Command Prompt`, `Git Bash`, and `WSL` (Windows Subsystem for Linux). `PowerShell` and `Command Prompt` are built-in to Windows. You can tell which shell you are using by looking at the prompt. It will look different depending on the shell.
 
 For example, `PowerShell` will look something like this:
-```ps
+```cmd
 PS C:\Users\<YourUsername>>
 ```
 
@@ -50,7 +50,6 @@ And finally `WSL` will look something like this (Quite similar to Git Bash):
 For this guide, we recommend using `PowerShell`, and all code blocks will assume you are using `Powershell`. You can change what shell your using by clicking the dropdown at the top of `Terminal`.
 
 [] 
-
 
 
 ### Install Required Tools
@@ -130,13 +129,13 @@ After choosing a location and creating the folder, open that location in your te
 ```bash
 $ cd ~/Projects
 ```
-Your terminal should now show that it is in the `Projects` directory or whatever directory you chose. It may not look exactly like this depending on your operating system, but it should now say "Projects" somewhere in your prompt.
+Your terminal should now show that it is in `Projects/` or whatever directory you chose. It may not look exactly like this depending on your operating system, but it should now say "Projects" somewhere in your prompt.
 
 ```bash
 user@hostname:~/Projects$
 ```
 
-Copy the ssh url of your forked repository by selecting `<> Code` then `ssh`. It should start with `git@github.com`. Make sure you are on the page of your fork!
+Copy the ssh url of your forked repository by selecting `<> Code` then `ssh`. It should start with `git@github.com`. Make sure you are **on the page of your fork** and not UTDNebula's github-workshop
 ![Screenshot showing a mouse clicking the copy ssh button on the repository](./copy-git-ssh-url.png)
 
 
@@ -226,8 +225,6 @@ Open UTD-Nebula's github-workshop-2026f repository on GitHub
 Open the `Pull requests` tab and create a Pull Request with your changes. You may need to click "Compare across forks" 
 
 Write a clear PR title and a description explaining what you changed
-
-Congratulations! You've just done everything 
 
 ### Challenge 4 Simulating & Resolving a Merge Conflict
 
