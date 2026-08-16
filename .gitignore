@@ -1,0 +1,12 @@
+# Compiled binaries
+*.out
+*.exe
+*.o
+calculator
+greeter
+
+# IDE and OS metadata
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
