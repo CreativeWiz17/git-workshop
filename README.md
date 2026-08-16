@@ -119,9 +119,7 @@ Fork this repository by selecting the fork button on GitHub.
 
 ![Screenshot showing fork on GitHub ](./fork.png)
 
-use your forked repository for this workshop
-
-### Clone this repository
+### Clone your forked repository
 
 #### Choose a directory to store the project
 
@@ -138,7 +136,7 @@ Your terminal should now show that it is in the `Projects` directory or whatever
 user@hostname:~/Projects$
 ```
 
-Copy the ssh url of this repository by selecting `<> Code` then `ssh`. It should start with `git@github.com`.
+Copy the ssh url of your forked repository by selecting `<> Code` then `ssh`. It should start with `git@github.com`. Make sure you are on the page of your fork!
 ![Screenshot showing a mouse clicking the copy ssh button on the repository](./copy-git-ssh-url.png)
 
 
@@ -219,71 +217,64 @@ Stage and commit the change on your new branch.
 
 Push your branch to your remote repository on GitHub.
 
-## Pull Request on GitHub
+Now, in GitHub, verify that your branch changes show when you try changing branches
 
-2. Write a clear PR title and a description explaining what was added.
-3. Review the code diff tab on GitHub.
-4. Merge the Pull Request on GitHub.
-5. Switch your local repository back to your base branch and pull down the merged changes.
----
+### Challenge 3: Pull Request on GitHub
 
-## Simulating & Resolving a Merge Conflict
+Open UTD-Nebula's github-workshop-2026f repository on GitHub
 
-A merge conflict happens when two branches modify the **same line of code** differently and Git cannot guess which version you want.
+Open the `Pull requests` tab and create a Pull Request with your changes. You may need to click "Compare across forks" 
+
+Write a clear PR title and a description explaining what you changed
+
+Congratulations! You've just done everything 
+
+### Challenge 4 Simulating & Resolving a Merge Conflict
+
+This can be one of the most challenging parts of Git
+
+A merge conflict happens when two branches modify the **same line of code** differently and Git cannot guess which version you want
 
 ```
-                     ● [conflict-test-a]: banner says "=== Nebula Edition ==="
+                     ● [conflict-test-a]: banner says "Nebula Labs Git Workshop"
                     /
 develop:  ● ───────● 
                     \
-                     ● [conflict-test-b]: banner says "=== CS Dept Edition ==="
+                     ● [conflict-test-b]: banner says "Nebula Labs GitHub Workshop"
 ```
 
----
+#### Create the Conflicting Branches
 
-### Create the Conflicting Branches
-
-#### Task A: Create branch `conflict-test-a`
+##### Create branch `conflict-test-a`
 1. Ensure you are on `develop` (or `main`).
 2. Create and switch to a branch named `conflict-test-a`.
 3. In `calculator.c`, change the title line in `print_banner()` to:
    ```c
-   printf("        >>> Nebula Workshop Edition <<<\n");
+   printf("Nebula Labs Git Workshop\n");
    ```
-4. Stage and commit with message: `"Update banner for Nebula Workshop Edition"`.
+4. Stage and commit with message: `"Add Git to workshop banner"`.
 
-#### Task B: Create branch `conflict-test-b` from the same starting point
+##### Create branch `conflict-test-b` from the same starting point
 1. Switch back to `develop` (or `main`).
 2. Create and switch to another branch named `conflict-test-b`.
 3. In `calculator.c`, change the **exact same title line** in `print_banner()` to:
    ```c
-   printf("        *** UTD CS Department Edition ***\n");
+   printf("Nebula Labs GitHub Workshop\n");
    ```
-4. Stage and commit with message: `"Update banner for UTD CS Department Edition"`.
+4. Stage and commit with message: `"Add GitHub to workshop banner"`.
 
----
+#### Trigger the Merge Conflict
+Attempt to merge `conflict-test-b` into `conflict-test-a`
 
-### Trigger the Merge Conflict
-Attempt to merge `conflict-test-b` into `conflict-test-a`.
 
-On branch `conflict-test-a`, choose **Branch** > **Merge into current branch...** > select `conflict-test-b`.<br><br>
-*Expected Verification Output:*<br>
-A modal pops up stating: <strong>"1 conflicted file"</strong> with options to resolve the conflict.
-
-</td>
-</tr>
-</table>
-
----
-
-### Inspect & Understand Conflict Markers
-Open `calculator.c` in your text editor. Observe the conflict markers inserted by Git:
+#### Inspect & Understand Conflict Markers
+If merging with the command line, Git will create these conflict markers. VS Code tries to format them
 
 ```c
 <<<<<<< HEAD
-    printf("        >>> Nebula Workshop Edition <<<\n");
+    printf("Nebula Labs Git Workshop\n");
 =======
-    printf("        *** UTD CS Department Edition ***\n");
+    printf("Nebula Labs GitHub Workshop\n");
 >>>>>>> conflict-test-b
 ```
 
@@ -295,48 +286,45 @@ Open `calculator.c` in your text editor. Observe the conflict markers inserted b
 
 ###  Resolve the Conflict & Finalize the Merge
 
-1. Decide on the final code. Combine both ideas into a clean banner:
+Decide on the final code. Combine both ideas into a clean banner:
    ```c
    void print_banner(void) {
-       printf("========================================\n");
-       printf("  UTD Nebula & CS Dept Workshop Edition \n");
-       printf("           Simple Calculator            \n");
-       printf("========================================\n\n");
+       printf("Nebula Labs Git/GitHub Workshop\n");
+       ...
    }
    ```
-2. **Crucial**: Delete all conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`).
-3. Save `calculator.c`.
-4. Stage the resolved file and complete the merge commit.
 
-1. In GitHub Desktop, the conflict status for `calculator.c` changes to resolved.
-2. Click **Continue merge** (or **Commit merge**).
-3. Switch to **History** tab: observe the merge commit with two parent commits showing the merged history!
+Delete all conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`).
 
-</td>
-</tr>
-</table>
+Finish your merge. We often use a merge commit, but Git also supports rebasing 
 
----
 
 ## 💻 (Optional) Compiling and Running C Code
 
 If you have a C compiler installed (`gcc` or `clang`):
 
+Compile `calculator.c`
 ```bash
-# 1. Compile calculator.c
-gcc -Wall -Wextra -std=c99 calculator.c -o calculator
-
-# 2. Run the executable
-./calculator
+$ gcc calculator.c
 ```
+
+This should create a new file named `a.exe` (on Windows) or `a.out` (on macOS/Linux).
+
+Run the executable
+
+On **Windows** using PowerShell
+```bash
+$ ./a.exe
+```
+
+On **macOS and Linux:**
+```bash
+$ ./a.out
+```
+
 
 ### Expected Output
 ```text
-========================================
-  UTD Nebula & CS Dept Workshop Edition 
-           Simple Calculator            
-========================================
-
 Inputs: a = 12, b = 4
 ----------------------------------------
 Addition:       12 + 4 = 16
@@ -344,13 +332,6 @@ Subtraction:    12 - 4 = 8
 Multiplication: 12 * 4 = 48
 ```
 
----
-
 ## You're all set!
 
 Congratulations! You have practiced the fundamental workflows used by software engineering teams worldwide:
-- ✅ Inspecting state and staging selectively
-- ✅ Crafting structured commits
-- ✅ Developing in isolated feature branches
-- ✅ Collaborating with Pull Requests on GitHub
-- ✅ Merging branches and safely resolving merge conflicts

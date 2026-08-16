@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 void print_banner(void) {
-    printf("UTD Nebula Git Workshop\n");
+    printf("Nebula Labs Workshop\n");
     printf("C Calculator - [Your Name Here]\n");
 }
 
