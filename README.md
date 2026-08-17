@@ -100,10 +100,9 @@ $ clang --version
 
 ### Configure Git
 
-(Add how to setup ssh with git here)
+#### Set Your Name and Email
 
-Set your name and email so your commits are properly attributed to your GitHub account:
-
+Run the following 2 commands to set your name and email so commits are properly attributed to you. Replace `Your Name` with your name and `your_email@example.com` with your email address.
 ```bash
 $ git config --global user.name "Your Name"
 $ git config --global user.email "your_email@example.com"
@@ -112,9 +111,71 @@ $ git config --global user.email "your_email@example.com"
 > [!IMPORTANT]
 > Ensure the email address matches the one associated with your GitHub account so GitHub links commits to your profile.
 
+#### Set Up SSH with GitHub
+
+Using SSH (Secure Shell) allows you to securely connect and authenticate with GitHub from your terminal without needing to enter a password or token each time.
+
+##### Step 1: Generate a new SSH key
+Run the following command. Replace `your_email@example.com` with your GitHub email
+
+```bash
+$ ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+
+When prompted:
+1. **Enter file in which to save the key**: Press **Enter** to accept the default file location (`~/.ssh/id_ed25519`).
+2. **Enter passphrase**: (Optional) Enter a passphrase for additional security, or press **Enter** twice to proceed without one.
+
+##### Step 2: Copy your public SSH key
+Display your public key to copy it:
+
+- **Windows (PowerShell)**:
+  ```bash
+  $ Get-Content ~/.ssh/id_ed25519.pub
+  ```
+- **macOS**:
+  ```bash
+  $ cat ~/.ssh/id_ed25519.pub
+  ```
+- **Linux**:
+  ```bash
+  $ cat ~/.ssh/id_ed25519.pub
+
+Copy the entire output starting with `ssh-ed25519` and ending with your email.
+
+##### Step 3: Add your SSH key to GitHub
+1. Open [github.com](https://github.com/) in your browser and log in.
+2. In the top-right corner, click your **profile photo** and select **Settings**.
+3. In the left sidebar under the **Access** section, select **SSH and GPG keys**.
+4. Click the green **New SSH key** button.
+5. In the **Title** field, enter a descriptive label for your device (e.g. `Personal Laptop`).
+6. Leave **Key type** set to **Authentication Key**.
+7. In the **Key** field, paste your copied public key.
+8. Click **Add SSH key** (confirm your GitHub account password if prompted).
+
+##### Step 4: Test your SSH connection
+Verify that your SSH connection to GitHub is working:
+
+```bash
+$ ssh -T git@github.com
+```
+
+If prompted with a message like:
+```text
+The authenticity of host 'github.com (IP)' can't be established.
+ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+```
+Type `yes` and press **Enter**.
+
+You should see a confirmation message:
+```text
+Hi <YourUsername>! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
 ### Fork this repository
 
-Fork this repository by selecting the fork button on GitHub.
+A fork is your own copy of a repository. Fork this repository by selecting the fork button on GitHub.
 
 ![Screenshot showing fork on GitHub ](./fork.png)
 
