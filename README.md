@@ -6,7 +6,7 @@ Check out Nebula Lab's discord [here](https://discord.gg/t82yH6c5Mv). We're here
 
 You can find the optional slides associated with this workshop [here](https://docs.google.com/presentation/d/1bAFLI1-lTbMHA8uViJ5STYrv4VZj-Af6/edit?usp=sharing&ouid=110056758517350255566&rtpof=true&sd=true)
 
-Be sure to check out the Git cheat sheet [here]
+Be sure to check out the Git cheat sheet [here](https://git-scm.com/cheat-sheet)
 
 ## Setup
 
