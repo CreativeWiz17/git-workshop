@@ -286,7 +286,7 @@ Edit `calculator.c`. Replace the text "Your Name Here" in the `print_banner(void
 
 Save your changes
 
-Stage your changes 
+Stage your changes
 
 Commit your changes (don't forget to add an informative commit message)
 
@@ -318,7 +318,7 @@ Now, in GitHub, verify that your branch changes show when you try changing branc
 
 Open UTD-Nebula's github-workshop-2026f repository on GitHub
 
-Open the `Pull requests` tab and create a Pull Request with your changes. You may need to click "Compare across forks" 
+Open the `Pull requests` tab and create a Pull Request with your changes. You may need to click "Compare across forks"
 
 Write a clear PR title and a description explaining what you changed
 
@@ -398,7 +398,6 @@ Decide on the final code. Combine both ideas into a clean banner:
 Delete all conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`).
 
 Finish your merge. We often use a merge commit, but Git also supports rebasing
-
 
 ## 💻 (Optional) Compiling and Running C Code
 
